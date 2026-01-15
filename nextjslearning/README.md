@@ -89,21 +89,23 @@ You don’t need heavy configuration — it **just works**.
 
 ----------------------------------
 
-Here’s **all Next.js commands written cleanly in `README.md` format** ✅
-You can **copy–paste directly** into your `README.md`.
+### Here’s **all Next.js commands 
 
----
 
-````md
+
 ## 🧾 Next.js Commands
 
 ### 📦 Create a New Next.js Project
+
+
+
 ```bash
+
 npx create-next-app@latest my-app
 cd my-app
-````
 
----
+```
+
 
 ### ▶️ Run Development Server
 
@@ -129,9 +131,11 @@ Creates an optimized production build.
 
 ```bash
 npm run build
-```
 
----
+
+         ```
+
+
 
 ### ▶️ Start Production Server
 

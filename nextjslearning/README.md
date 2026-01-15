@@ -466,6 +466,111 @@ Component file ke top par likhna hota hai:
 * Sirf jahan interaction chahiye wahan **Client Components**
 
 
+Samajh gaya 👍
+Tum **ek hi README chahte ho**, mainly **English**, aur **sirf jahan confusion hota hai wahan Hinglish explanation**.
+Neeche wahi format diya hai — **clean, simple, exam/interview friendly**.
+
+---
+
+
+# File Based Routing in Next.js
+
+## What is File Based Routing?
+File-based routing means **routes are created automatically using folders and files**.  
+(👉 Simple samjho: folder ka naam = URL ka path)
+
+---
+
+## Scenario 1: Home Page
+
+**URL**
+```
+
+[http://localhost:3000](http://localhost:3000)
+
+```
+
+**File Structure**
+```
+
+app/page.tsx
+
+```
+
+**Result**
+- Home page render hota hai
+
+👉 `page.tsx` root route (`/`) hota hai
+
+---
+
+## Scenario 2: Multiple Pages
+
+**Folder Structure**
+```
+
+app
+├── about
+│    └── page.tsx
+├── profile
+│    └── page.tsx
+├── layout.tsx
+└── page.tsx
+
+```
+
+**URLs**
+```
+
+[http://localhost:3000/about](http://localhost:3000/about)     → About Page
+[http://localhost:3000/profile](http://localhost:3000/profile)  → Profile Page
+
+````
+
+👉 `about` aur `profile` folder ka naam hi URL ban jata hai
+
+---
+
+## Routing Rules (Important)
+
+1. All routes must be inside the `app` folder  
+   👉 Saare pages `app` folder ke andar hone chahiye  
+
+2. Route file name must be `page.js` or `page.tsx`  
+   👉 Tabhi Next.js usse route maanta hai  
+
+3. Each folder represents a URL segment  
+   👉 Folder ka naam = URL ka part  
+
+When these rules are followed, the route works automatically  
+(👉 Koi router install karne ki zarurat nahi)
+
+---
+
+## Example Code (Home Page)
+
+**File:** `app/page.tsx`
+
+```tsx
+export default function Home() {
+  return <h1>Welcome home!</h1>;
+}
+````
+
+👉 Ye code `/` route ke liye page render karta hai
+
+---
+
+## One-Line Summary
+
+> Next.js uses folder and file names to create routes automatically.
+
+👉 Folder + `page.tsx` = Route
+
+
+
+
+
 
 
 

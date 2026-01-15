@@ -570,6 +570,126 @@ export default function Home() {
 
 
 
+# Nested Routes in Next.js
+
+## What are Nested Routes?
+Nested routes means **routes inside another route**.
+
+👉 In simple words:  
+**Parent route ke andar child routes hote hain** (yeh hi nested routes hote hain).
+
+---
+
+## Blog Example (Easy to Visualize)
+
+Assume your website has a **Blog section**:
+
+URLs look like this:
+```
+
+/blog
+/blog/first
+/blog/second
+
+```
+
+👉 `/blog` is the **parent route**  
+👉 `/blog/first` and `/blog/second` are **child routes**
+
+---
+
+## Folder Structure Logic (Important)
+
+Rule:
+> **Folder inside folder = URL inside URL**
+
+```
+
+app
+└── blog
+├── page.tsx        → /blog
+├── first
+│    └── page.tsx  → /blog/first
+└── second
+└── page.tsx  → /blog/second
+
+```
+
+👉 Har folder URL ka ek part ban jata hai  
+👉 `page.tsx` batata hai “yeh ek route hai”
+
+---
+
+## How URLs are formed (Step-by-step)
+
+### `/blog`
+- `blog` folder
+- `blog/page.tsx`
+
+👉 Blog ka main page
+
+---
+
+### `/blog/first`
+- `blog` → parent
+- `first` → child
+
+👉 First blog page
+
+---
+
+### `/blog/second`
+- `blog` → parent
+- `second` → child
+
+👉 Second blog page
+
+---
+
+## Important Points to Remember 🧠
+
+- All routes must be inside the `app` folder  
+- Each folder represents a part of the URL  
+- Without `page.tsx`, route create nahi hota  
+
+👉 Folder + `page.tsx` = Route
+
+---
+
+## Real-Life Analogy (Quick)
+
+Think of an address:
+```
+
+City → Area → House
+
+```
+
+URL bhi waise hi kaam karta hai:
+```
+
+/blog/first
+
+```
+
+City = blog  
+Area = first  
+
+---
+
+## One-Line Summary
+
+> **Nested routes are created by placing folders inside folders.**
+
+👉 Folder ke andar folder = nested route
+
+
+
+
+
+
+
+
 
 
 

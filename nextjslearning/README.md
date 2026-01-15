@@ -364,6 +364,116 @@ You’ll see:
 
 
 
+# React Server Components (RSC) – Simple Explanation 
+
+## React Server Components kya hote hain?
+
+**React Server Components (RSC)** ek naya architecture hai jo:
+- React team ne introduce kiya
+- Aur Next.js ne use karna start kiya
+
+Is architecture ka main idea hai:
+👉 React components ko **2 types** me divide karna
+
+- Server Components  
+- Client Components  
+
+---
+
+## 🔹 Server Components
+
+### Server Components kya hote hain?
+- By default, **Next.js ke saare components Server Components hote hain**
+- Ye components **server par run hote hain**, browser par nahi
+
+### Server Components kya kar sakte hain?
+- Database se direct data fetch kar sakte hain
+- Files read kar sakte hain
+- Secure logic handle kar sakte hain
+
+### Server Components kya NAHI kar sakte?
+❌ React hooks use nahi kar sakte (`useState`, `useEffect`)  
+❌ User interaction handle nahi kar sakte (click, input, etc.)
+
+### Simple samjho 👇
+> Server Components = **data + logic**  
+> (jo user ko directly interact nahi karna)
+
+---
+
+## 🔹 Client Components
+
+### Client Components kya hote hain?
+- Ye **browser par run hote hain**
+- Traditional React components jaise hi hote hain
+
+### Client Component kaise banate hain?
+Component file ke top par likhna hota hai:
+
+```js
+"use client";
+````
+
+### Client Components kya kar sakte hain?
+
+✅ React hooks use kar sakte hain
+✅ Button click, form input, events handle kar sakte hain
+✅ State manage kar sakte hain
+
+### Client Components kya NAHI kar sakte?
+
+❌ Server-side ka kaam (file read, direct DB access)
+
+### Simple samjho 👇
+
+> Client Components = **UI + interaction**
+
+---
+
+## 🔁 Server vs Client (Simple Table)
+
+| Feature            | Server Component | Client Component              |
+| ------------------ | ---------------- | ----------------------------- |
+| Run kaha hota hai  | Server par       | Browser par                   |
+| Hooks use          | ❌ Nahi           | ✅ Haan                        |
+| User interaction   | ❌ Nahi           | ✅ Haan                        |
+| Data fetch         | ✅ Haan           | ❌ Direct nahi                 |
+| Default in Next.js | ✅ Yes            | ❌ No (`use client` lagta hai) |
+
+---
+
+## 🧠 Important Yaad Rakhne wali Baatein
+
+* Next.js me **default sab Server Components hote hain**
+* Interaction chahiye → `"use client"` lagao
+* Performance better hoti hai kyunki:
+
+  * Kam JavaScript browser me jata hai
+  * Page fast load hota hai
+
+---
+
+## 🎯 One-Line Summary (Interview Ready)
+
+> **Server Components data aur logic ke liye hote hain,
+> Client Components UI aur user interaction ke liye.**
+
+---
+
+## ✅ Best Practice
+
+* Zyada se zyada **Server Components use karo**
+* Sirf jahan interaction chahiye wahan **Client Components**
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -132,8 +132,8 @@ Creates an optimized production build.
 ```bash
 npm run build
 
-
-         ```
+  ```
+       
 
 
 
@@ -214,31 +214,6 @@ npm run start → run production build
 
 ```
 
-
-
-### 🧠 Next.js Folder Structure
-
-``` bash
-
-my-next-app/
-├── app/
-│   ├── page.tsx        # Home page (/)
-│   ├── layout.tsx     # Common layout (Navbar, Footer)
-│   └── globals.css    # Global styles
-│
-├── public/
-│   └── favicon.ico    # Static files (images, icons)
-│
-├── package.json       # Project info & commands
-└── README.md          # Project documentation
-
-```
-
-
-Got it 👍
-Here’s the **MOST SIMPLE Next.js folder structure** (beginner level, easy to understand).
-
----
 
 ## 📁 Next.js Project Structure 
 

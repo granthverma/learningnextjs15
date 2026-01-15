@@ -466,11 +466,9 @@ Component file ke top par likhna hota hai:
 * Sirf jahan interaction chahiye wahan **Client Components**
 
 
-Samajh gaya 👍
-Tum **ek hi README chahte ho**, mainly **English**, aur **sirf jahan confusion hota hai wahan Hinglish explanation**.
-Neeche wahi format diya hai — **clean, simple, exam/interview friendly**.
 
----
+
+
 
 
 # File Based Routing in Next.js
@@ -682,6 +680,224 @@ Area = first
 > **Nested routes are created by placing folders inside folders.**
 
 👉 Folder ke andar folder = nested route
+
+
+---------------------------------------------------------------------------------------
+# Dynamic Routes in Next.js 
+
+## What are Dynamic Routes?
+Dynamic routes are used when **URL ka ek part fixed nahi hota** and it changes dynamically.
+
+Example:
+- `/products/1`
+- `/products/2`
+- `/products/3`
+
+Yahan `1`, `2`, `3` change ho rahe hain,  
+isliye hum **dynamic routes** use karte hain.
+
+---
+
+## Why do we need Dynamic Routes?
+Creating a separate page for every product or blog is not practical.
+
+Dynamic routes allow:
+- One page
+- Multiple dynamic values
+
+Real apps like Amazon, Flipkart, Blogs sab dynamic routes use karti hain.
+
+---
+
+## Create Next.js Project (Command)
+
+```bash
+npx create-next-app@latest routing-demo
+cd routing-demo
+````
+
+---
+
+## Folder Structure (Very Important)
+
+```
+app
+ └── products
+     ├── page.tsx              → /products
+     └── [productId]
+          └── page.tsx         → /products/1, /products/2
+```
+
+* `[productId]` means **dynamic value**
+* Square brackets `[ ]` batate hain ki URL ka ye part change ho sakta hai
+
+---
+
+## Create Folders (Command)
+
+```bash
+mkdir -p app/products/[productId]
+```
+
+---
+
+## URL Mapping (Simple)
+
+| URL           | Meaning           |
+| ------------- | ----------------- |
+| `/products`   | Product list page |
+| `/products/1` | Product 1 details |
+| `/products/2` | Product 2 details |
+
+Same file handles all product details pages.
+
+---
+
+## How `params` Work in Dynamic Routes
+
+When you visit:
+
+```
+/products/1
+```
+
+Next.js automatically sends:
+
+```ts
+params = { productId: "1" }
+```
+
+URL ka dynamic part = `params.productId`
+
+---
+
+## Product List Page Code
+
+### `app/products/page.tsx`
+
+```tsx
+export default function ProductList() {
+  return (
+    <>
+      <h1>Product List</h1>
+      <h2>Product 1</h2>
+      <h2>Product 2</h2>
+      <h2>Product 3</h2>
+    </>
+  );
+}
+```
+
+---
+
+## Dynamic Product Details Page (Recommended)
+
+### `app/products/[productId]/page.tsx`
+
+```tsx
+type Props = {
+  params: {
+    productId: string;
+  };
+};
+
+export default function ProductDetails({ params }: Props) {
+  const { productId } = params;
+
+  return (
+    <h1>Details about Product {productId}</h1>
+  );
+}
+```
+
+* `params` ke andar URL ka dynamic value aata hai
+* `productId` directly access hota hai
+* Ye approach most common aur beginner-friendly hai
+
+---
+
+## Async Version (Advanced Use Case)
+
+```tsx
+export default async function ProductDetails({
+  params,
+}: {
+  params: Promise<{ productId: string }>;
+}) {
+  const productId = (await params).productId;
+
+  return (
+    <h1>Details about Product {productId}</h1>
+  );
+}
+```
+
+* `params` ek promise hai
+* Isliye `await params` use hota hai
+* Mostly advanced scenarios me use hota hai
+
+---
+
+## Run Project Commands
+
+### Install dependencies
+
+```bash
+npm install
+```
+
+### Start development server
+
+```bash
+npm run dev
+```
+
+---
+
+## Test in Browser
+
+```
+http://localhost:3000/products
+http://localhost:3000/products/1
+http://localhost:3000/products/2
+```
+
+---
+
+## Real-Life Analogy
+
+Socho ek building hai:
+
+```
+Room 101
+Room 102
+Room 103
+```
+
+Building same hai, room number change hota hai.
+
+Same way:
+
+```
+/products/1
+/products/2
+```
+
+`products` = building
+`productId` = room number
+
+---
+
+## One-Line Summary
+
+> **Dynamic routes allow handling multiple dynamic URLs using `[param]` in Next.js.**
+
+`[productId]` = changing value
+`params.productId` = uski value
+
+
+
+
 
 
 
